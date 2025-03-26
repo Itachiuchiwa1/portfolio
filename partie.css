@@ -1,0 +1,547 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    padding-top: 100px; /* Compensation pour la navbar fixe */
+}
+
+/* Navbar fixe */
+.navbar {
+    background-color: #111;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 8%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.navbar .logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.navbar .prenom {
+    color: #00d4be;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #00d4be;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10rem 10%; /* Ajoute un espacement de 2rem en ha266556255265ut et en bas, et de 10% sur les côtés */
+    background-color: white;
+    position: relative; /* Nécessaire pour positionner l'image */
+    
+}
+/* alignement du texte*/
+
+.hero .content {
+    flex: 1;
+    max-width: 80%;
+    text-align: left;
+}
+
+.hero .content h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #111;
+    line-height: 1.6;
+
+}
+.noir {
+    color: black;
+}
+
+
+.hero .content .prenom {
+    color: #00d4be;
+}
+
+.btn {
+    display: inline-block; /* Pour que le lien se comporte comme un bouton */
+    padding: 5px 20px; /* Espacement autour du texte */
+    background-color: #00d4be; /* Couleur de fond bleu-vert */
+    color: white; /* Couleur du texte */
+    text-decoration: none; /* Supprimer le soulignement */
+    border-radius: 5px; /* Bord arrondi */
+    font-size: 2.1rem; /* Taille du texte */
+    font-weight: bold; /* Gras */
+
+    transition: background-color 0.3s ease; /* Transition lors du survol */
+}
+/* Centrer le bouton dans son conteneur */
+.hero .content {
+    display: flex;
+    flex-direction: column; /* Aligne les éléments sur une colonne */
+    justify-content: center; /* Centre verticalement */
+    align-items: center; /* Centre horizontalement */
+    text-align: center; /* Centre le texte */
+}
+/* Lorsque vous survolez le bouton */
+.btn:hover {
+    background-color: #009f91; /* Change le fond au survol */
+}
+
+
+
+
+
+.hero .image {
+    flex: 0 0 auto;
+    max-width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-left: auto; /* Pousse l'image à droite */
+    position: relative; /* Permet d'utiliser top, left, etc. */
+    top: 40px; /* Déplace l'image de 30px vers le haut */
+    left: 100px; /* Déplace l'image de 50px vers la droite */
+}
+
+.hero .image img {
+    max-width: 100%;
+    width: 650px;
+    height: auto;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 5%;
+    }
+
+    .hero .content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero .image {
+        max-width: 100%;
+        margin-top: 2rem;
+        justify-content: center;
+        top: 0; /* Réinitialise le déplacement sur les petits écrans */
+        left: 0; /* Réinitialise le déplacement sur les petits écrans */
+    }
+}
+
+/* Section À propos */
+.about {
+    background-color: #f8f8f8; /* Couleur de fond douce */
+    padding: 4rem 10%;
+    text-align: center;
+}
+
+.about h2 {
+    color: #00d4be;
+
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Conteneur principal */
+/* Structure */
+.about-content {
+    display: flex;
+    align-items: flex-start; /* Alignement en haut */
+}
+
+.text-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.text {
+    max-width: 100%; /* Prend toute la largeur disponible */
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+    text-align: left; /* Alignement à gauche */
+}
+
+/* Image */
+.profile-image {
+    flex: 0 0 auto;
+    width: 380px;
+    height: 380px;
+    margin-left: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #00d4be;
+    position: relative;
+    background-color: #f0f0f0; /* Couleur de fond si l'image ne charge pas */
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center; /* Ajustement crucial */
+    display: block;
+    transition: transform 0.3s ease;
+}
+/* Vos styles existants à conserver */
+.nom, .highlight {
+    color: #00d4be;
+    font-weight: bold;
+}
+
+.espace {
+    margin-top: 20px;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .profile-image {
+        margin: 30px auto 0;
+        width: 200px;
+        height: 200px;
+    }
+}
+ /* ==================== Section 4 : Mes Projets ==================== */
+.Mind {
+    background-color: white;
+    padding: 4rem 10%;
+    text-align: center;
+}
+
+.Mind h2 {
+    color: #00d4be;
+    font-size: 2rem;
+    margin-bottom: 10rem; /* Espacement accru sous le titre */
+}
+
+.Mind-content {
+    display: flex;
+    justify-content: space-between; /* Espacement égal entre les rectangles */
+    gap: 2rem; /* Espace entre les rectangles */
+    flex-wrap: wrap; /* Permet aux rectangles de passer à la ligne sur les petits écrans */
+    margin-top: 2rem; /* Espacement supplémentaire au-dessus des rectangles */
+}
+
+.rectangle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Aligne le bouton en bas */
+    align-items: center; /* Centre le texte et le bouton */
+    background-color: white;
+    border: 2px solid #00d4be;
+    border-radius: 10px;
+    padding: 1.5rem;
+    flex: 1 1 calc(33.333% - 2rem);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    height: 270px;
+    text-align: center; /* Assure que tout est centré */
+}
+
+.rectangle h3 {
+    color: #00d4be; /* Titre en bleu-vert */
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.rectangle p {
+    color: #333; /* Texte en gris foncé */
+    font-size: 1rem;
+    line-height: 1.6;
+    flex-grow: 1; /* Permet au texte de prendre de l'espace sans décaler le bouton */
+}
+
+/* Responsive pour les petits écrans */
+@media (max-width: 900px) {
+    .rectangle {
+        flex: 1 1 100%; /* Les rectangles prennent toute la largeur sur les petits écrans */
+        margin-bottom: 1.5rem; /* Espacement entre les rectangles */
+        width: 100%; /* Largeur totale sur les petits écrans */
+        height: auto; /* Hauteur automatique pour s'adapter au contenu */
+    }
+}
+
+
+
+ /* ==================== Section 5 : Mes Projets ==================== */
+ .Expérimenter{/* aligner le texte au milieu */
+    background-color: #f8f8f8;
+    padding: 4rem 10%;
+    text-align: center;
+ }
+.Expérimenter h2{
+    color: #00d4be;
+    font-size: 2rem;
+    margin-bottom: 10rem; /* Espacement accru sous le titre */
+}
+.Expérimenter-content {
+    display: flex;
+    justify-content: space-between; /* Espacement égal entre les rectangles */
+    gap: 2rem; /* Espace entre les rectangles */
+    flex-wrap: wrap; /* Permet aux rectangles de passer à la ligne sur les petits écrans */
+    margin-top: 2rem; /* Espacement supplémentaire au-dessus des rectangles */
+}
+.rectangle {
+    background-color: #f8f8f8; /* Fond gris clair */
+    border: 2px solid #00d4be; /* Bordure bleu-vert */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 1.5rem; /* Espacement intérieur */
+    flex: 1 1 calc(33.333% - 2rem); /* Largeur de chaque rectangle (3 par ligne) */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    text-align: left; /* Alignement du texte à gauche */
+    width: 300px; /* Largeur fixe */
+    height: 270px; /* Hauteur fixe */
+}
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+}
+
+/* Section contact */
+.contact {
+    padding: 50px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: #00e6e6;
+    font-weight: bold;
+}
+
+/* ==================== Section Compétences ==================== */
+.competences {
+    background-color: #f8f8f8; /* Fond blanc */
+    padding: 4rem 10%; /* Espacement autour de la section */
+    text-align: center; /* Centrer le titre */
+}
+
+.competences h2 {
+    color: #00d4be; /* Couleur bleu-vert */
+    font-size: 2rem; /* Taille du titre */
+    margin-bottom: 2rem; /* Espacement sous le titre */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Espace entre les cartes */
+    gap: 2rem; /* Espacement entre les cartes */
+    padding: 2rem 0; /* Espacement intérieur */
+}
+
+.skills-card {
+    background-color: white; /* Fond blanc */
+    border: 2px solid #00d4be; /* Bordure bleu-vert */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 1.5rem; /* Espacement intérieur */
+    flex: 1 1 45%; /* Largeur des cartes (45% pour 2 cartes par ligne) */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.skills-card h3 {
+    color: #00d4be; /* Titre en bleu-vert */
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.skill {
+    margin-bottom: 1.5rem; /* Espacement entre les compétences */
+}
+
+.skill p {
+    color: #333; /* Texte en gris foncé */
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    background-color: #e0e0e0; /* Fond gris pour la barre de progression */
+    border-radius: 5px; /* Coins arrondis */
+    height: 10px; /* Hauteur de la barre */
+    overflow: hidden; /* Cache le débordement */
+}
+
+.progress {
+    background-color: #00d4be; /* Couleur de la barre de progression */
+    height: 100%; /* Hauteur de la barre */
+    border-radius: 5px; /* Coins arrondis */
+}
+
+/* Responsive pour les petits écrans */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column; /* Empile les cartes verticalement */
+        padding: 2rem 5%; /* Réduit l'espacement */
+    }
+
+    .skills-card {
+        flex: 1 1 100%; /* Les cartes prennent toute la largeur */
+        margin-bottom: 1.5rem; /* Espacement entre les cartes */
+    }
+}
+
+/* Formulaire */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #00e6e6;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.input-box {
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #00e6e6;
+    background: white;
+    color: black;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 100px;
+}
+.contact h2 {
+    font-size: 28px;
+    margin-bottom: 35px; /* Espacement sous chaque titre */
+}
+
+/* Bouton */
+button {
+    background-color: #00e6e6;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+button:hover {
+    background-color: #00cccc;
+}
+
+/* Footer */
+footer {
+    background-color: #ffffff;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    margin-top: 50px;
+    position: relative;
+    font-size: 15px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.footer-left {
+    text-align: left;
+    flex: 1;
+    margin-left: auto; /* Force l'alignement à droite */
+}
+
+.visit-counter {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.visit-counter span {
+    color: #00d4be;
+    font-weight: bold;
+}
+
+.footer-right {
+    text-align: right;
+    flex: 1;
+}
+
+/* Styles existants conservés */
+.Abdoul {
+    color: #00d4be;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .footer-left,
+    .visit-counter,
+    .footer-right {
+        position: static;
+        transform: none;
+        width: 100%;
+        text-align: center;
+    }
+}
